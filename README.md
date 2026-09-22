@@ -583,6 +583,6 @@ La solución incorpora principios de HCI, diseño responsive, estados de interfa
 # 21. Autores
 
 **Proyecto académico – CitaSalud**
-
+**Estudiante:** Wilson Rolando Mendez Pulido  
 **Asignatura:** SM26_CSE6061 – Human-Computer Interaction and Digital Citizenship  
 **Institución:** Broward International University (BIU)
