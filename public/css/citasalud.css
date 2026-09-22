@@ -1,0 +1,345 @@
+/* =========================================================
+   CitaSalud - Estilos globales responsive
+   ========================================================= */
+
+:root {
+    --citasalud-primary: #0d6efd;
+    --citasalud-primary-dark: #0a58ca;
+    --citasalud-success: #198754;
+    --citasalud-info: #0dcaf0;
+    --citasalud-text: #212529;
+    --citasalud-muted: #6c757d;
+    --citasalud-bg: #f8f9fa;
+    --citasalud-border: #dee2e6;
+    --citasalud-radius: 16px;
+}
+
+
+/* =========================================================
+   Base
+   ========================================================= */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--citasalud-text);
+    background-color: var(--citasalud-bg);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+
+.navbar {
+    min-height: 64px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.navbar-brand i {
+    margin-right: 6px;
+}
+
+
+/* =========================================================
+   Contenedor principal
+   ========================================================= */
+
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+
+/* =========================================================
+   Títulos
+   ========================================================= */
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    color: var(--citasalud-muted);
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   Cards
+   ========================================================= */
+
+.citasalud-card {
+    border: 0;
+    border-radius: var(--citasalud-radius);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.citasalud-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* =========================================================
+   Iconos
+   ========================================================= */
+
+.dashboard-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    flex-shrink: 0;
+}
+
+.icon-primary {
+    background: #e7f1ff;
+    color: #0d6efd;
+}
+
+.icon-success {
+    background: #e8f7ef;
+    color: #198754;
+}
+
+.icon-info {
+    background: #e8f6fa;
+    color: #0dcaf0;
+}
+
+
+/* =========================================================
+   Botones
+   ========================================================= */
+
+.btn {
+    min-height: 42px;
+    border-radius: 9px;
+    font-weight: 500;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+
+/* =========================================================
+   Formularios
+   ========================================================= */
+
+.form-control,
+.form-select {
+    min-height: 44px;
+    border-radius: 9px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow:
+        0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   Tablas
+   ========================================================= */
+
+.table-responsive {
+    border-radius: 12px;
+}
+
+.table {
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   Estados vacíos
+   ========================================================= */
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-state i {
+    font-size: 42px;
+    color: #adb5bd;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   Responsive - Tablets
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .main-container {
+        padding: 28px 18px;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+}
+
+
+/* =========================================================
+   Responsive - Móviles
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    .main-container {
+        padding: 22px 15px;
+    }
+
+    .page-title {
+        font-size: 1.35rem;
+    }
+
+    .page-header {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .card-body {
+        padding: 20px !important;
+    }
+
+    .btn-mobile-full {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   Responsive - Móviles pequeños
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .main-container {
+        padding: 18px 12px;
+    }
+
+    .page-title {
+        font-size: 1.25rem;
+    }
+
+    .navbar {
+        min-height: 58px;
+    }
+
+    .navbar-brand {
+        font-size: 1.05rem;
+    }
+
+    .btn {
+        min-height: 44px;
+    }
+
+    .dashboard-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   Accesibilidad
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   Touch
+   ========================================================= */
+
+@media (hover: none) {
+
+    .citasalud-card:hover {
+        transform: none;
+        box-shadow: none !important;
+    }
+
+}

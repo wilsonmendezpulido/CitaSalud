@@ -79,12 +79,66 @@ class AuthController extends Controller
 
     public function logout()
     {
+        /*
+     * Asegurar que la sesión esté iniciada
+     */
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
+
+        /*
+     * Obtener el usuario antes de destruir la sesión
+     */
+        $usuarioId = isset($_SESSION['usuario_id'])
+            ? (int) $_SESSION['usuario_id']
+            : null;
+
+
+        /*
+     * Revocar todos los tokens API
+     * asociados al usuario
+     */
+        if ($usuarioId) {
+
+            require_once BASE_PATH . '/app/Models/ApiToken.php';
+
+            try {
+
+                $apiTokenModel = new ApiToken();
+
+                $apiTokenModel->deleteByUsuarioId(
+                    $usuarioId
+                );
+            } catch (Exception $e) {
+
+                /*
+             * No detener el logout si existe
+             * un problema al revocar tokens.
+             *
+             * Para producción sería recomendable
+             * registrar el error en logs.
+             */
+
+                error_log(
+                    'Error al revocar tokens API del usuario ' .
+                        $usuarioId .
+                        ': ' .
+                        $e->getMessage()
+                );
+            }
+        }
+
+
+        /*
+     * Limpiar variables de sesión
+     */
         $_SESSION = array();
 
+
+        /*
+     * Eliminar cookie de sesión
+     */
         if (ini_get('session.use_cookies')) {
 
             $params = session_get_cookie_params();
@@ -100,9 +154,21 @@ class AuthController extends Controller
             );
         }
 
+
+        /*
+     * Destruir sesión
+     */
         session_destroy();
 
-        header('Location: ' . APP_URL . '/login');
+
+        /*
+     * Regresar al login
+     */
+        header(
+            'Location: ' .
+                APP_URL .
+                '/login'
+        );
 
         exit;
     }

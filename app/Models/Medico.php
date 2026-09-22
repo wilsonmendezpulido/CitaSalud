@@ -40,6 +40,7 @@ class Medico extends Model
                 m.telefono,
                 m.email,
                 m.perfil,
+                e.id AS especialidad_id,
                 e.nombre AS especialidad
             FROM medicos m
             INNER JOIN especialidades e
@@ -68,6 +69,7 @@ class Medico extends Model
         $sql = "
             SELECT
                 m.*,
+                m.especialidad_id,
                 e.nombre AS especialidad
             FROM medicos m
             INNER JOIN especialidades e

@@ -9,6 +9,7 @@ require_once BASE_PATH . '/app/Controllers/DashboardController.php';
 require_once BASE_PATH . '/app/Controllers/PacienteController.php';
 require_once BASE_PATH . '/app/Controllers/CitaController.php';
 require_once BASE_PATH . '/app/Controllers/PerfilController.php';
+require_once BASE_PATH . '/app/Controllers/ApiController.php';
 
 $router->get(
     '/',
@@ -137,4 +138,40 @@ $router->get(
 $router->post(
     '/perfil/update',
     array(PerfilController::class, 'update')
+);
+
+/*
+|--------------------------------------------------------------------------
+| API REST CitaSalud
+|--------------------------------------------------------------------------
+*/
+
+$router->post(
+    '/api/login',
+    array(ApiController::class, 'login')
+);
+
+$router->get(
+    '/api/especialidades',
+    array(ApiController::class, 'especialidades')
+);
+
+$router->get(
+    '/api/medicos',
+    array(ApiController::class, 'medicos')
+);
+
+$router->get(
+    '/api/disponibilidad',
+    array(ApiController::class, 'disponibilidad')
+);
+
+$router->get(
+    '/api/citas',
+    array(ApiController::class, 'citas')
+);
+
+$router->get(
+    '/api/citas/detalle',
+    array(ApiController::class, 'detalleCita')
 );
